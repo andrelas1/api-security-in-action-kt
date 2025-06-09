@@ -2,6 +2,7 @@ package com.natter.api.config
 
 import com.natter.api.controller.SpaceController
 import com.natter.api.core.DatabaseService
+import com.natter.api.filter.RateLimitFilter
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
@@ -9,7 +10,8 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 @ComponentScan(basePackageClasses = [
-    SpaceController::class
+    SpaceController::class,
+    RateLimitFilter::class
 ])
 class AppConfiguration {
     

@@ -27,7 +27,7 @@ class SpaceController(private val databaseService: DatabaseService) {
         return spaces
     }
 
-    @PostMapping
+    @PostMapping(consumes = ["application/json"])
     fun createSpace(@Valid @RequestBody createSpaceRequest: CreateSpaceRequest): ResponseEntity<Space> {
         val space = databaseService.createSpace(createSpaceRequest.name, createSpaceRequest.owner)
         return ResponseEntity.status(HttpStatus.CREATED).body(space)
